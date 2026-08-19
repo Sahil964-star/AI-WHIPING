@@ -3,102 +3,207 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { Mail, Lock, ArrowRight } from 'lucide-react';
+import { 
+  ShieldCheck, 
+  HardDrive, 
+  FileCheck2, 
+  Boxes, 
+  QrCode, 
+  Lock, 
+  Mail 
+} from 'lucide-react';
 
 export default function LoginPage() {
   const router = useRouter();
+  const [email, setEmail] = useState('operator@greencycle.in');
+  const [password, setPassword] = useState('password123');
+  const [rememberMe, setRememberMe] = useState(true);
   const [isLoading, setIsLoading] = useState(false);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
-    // Simulate API call
     setTimeout(() => {
       router.push('/dashboard');
-    }, 800);
+    }, 600);
   };
 
   return (
-    <div className="min-h-screen bg-warmBeige-50 flex items-center justify-center p-4">
-      <div className="w-full max-w-md">
-        <div className="text-center mb-8">
-          <div className="w-16 h-16 rounded-xl bg-peach-500 flex items-center justify-center text-white font-bold text-2xl mx-auto shadow-soft-lg mb-4">
-            SW
-          </div>
-          <h1 className="text-3xl font-bold text-darkBrown-800 tracking-tight">SecureWipe</h1>
-          <p className="text-darkBrown-500 mt-2">Wipe. Verify. Certify. Protect.</p>
-        </div>
+    <div className="min-h-screen w-full bg-[#200c08] text-stone-200 relative flex items-center justify-center p-4 sm:p-6 lg:p-12 overflow-x-hidden font-sans selection:bg-[#e07a52] selection:text-[#180906]">
+      {/* Background Grid Pattern */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-25"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, rgba(235, 120, 80, 0.15) 1px, transparent 1px),
+            linear-gradient(to bottom, rgba(235, 120, 80, 0.15) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-        <div className="bg-white rounded-2xl shadow-soft p-8">
-          <h2 className="text-xl font-semibold text-darkBrown-800 mb-6">Welcome back</h2>
-          
-          <form onSubmit={handleLogin} className="space-y-5">
-            <div>
-              <label className="block text-sm font-medium text-darkBrown-600 mb-2">Email or Username</label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Mail className="h-5 w-5 text-darkBrown-400" />
-                </div>
-                <input
-                  type="email"
-                  required
-                  className="block w-full pl-10 pr-3 py-2.5 border border-warmBeige-200 rounded-lg focus:ring-2 focus:ring-peach-300 focus:border-peach-300 transition-colors bg-warmBeige-50 text-darkBrown-800 outline-none"
-                  placeholder="admin@securewipe.com"
-                />
+      <div className="w-full max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative z-10 py-6">
+        
+        {/* Left Column: Hero & Information */}
+        <div className="lg:col-span-7 space-y-8">
+          {/* Badge */}
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#2a120d]/80 border border-[#4a2218] text-[#c9a69b] text-xs font-medium backdrop-blur-sm">
+            <ShieldCheck className="w-3.5 h-3.5 text-[#e07a52]" />
+            <span>Smart India Hackathon prototype</span>
+          </div>
+
+          {/* Heading */}
+          <div className="space-y-2">
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-white leading-[1.15]">
+              Erase it. Prove it.
+            </h1>
+            <h2 className="text-4xl sm:text-5xl lg:text-6xl font-serif font-medium tracking-tight text-[#e07a52] leading-[1.15]">
+              Recycle with confidence.
+            </h2>
+          </div>
+
+          {/* Subtext */}
+          <p className="text-[#9e7669] text-base sm:text-lg leading-relaxed max-w-xl font-normal">
+            SecureWipe is the certified data erasure console for retired laptops, desktops and phones — register the asset, wipe it, verify it and hand over tamper-evident proof.
+          </p>
+
+          {/* 2x2 Feature Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2 max-w-xl">
+            {/* Card 1 */}
+            <div className="bg-[#190906]/90 border border-[#381811] rounded-2xl p-5 hover:border-[#4d2319] transition-all">
+              <div className="w-8 h-8 rounded-lg bg-[#27100b] border border-[#441d14] flex items-center justify-center text-[#e07a52] mb-3">
+                <HardDrive className="w-4 h-4" />
               </div>
+              <h3 className="text-white font-medium text-sm">Device registry</h3>
+              <p className="text-xs text-[#8c675c] mt-1">Track every retired asset end to end</p>
             </div>
 
-            <div>
-              <div className="flex items-center justify-between mb-2">
-                <label className="block text-sm font-medium text-darkBrown-600">Password</label>
-                <Link href="#" className="text-sm font-medium text-peach-600 hover:text-peach-700">
-                  Forgot password?
-                </Link>
+            {/* Card 2 */}
+            <div className="bg-[#190906]/90 border border-[#381811] rounded-2xl p-5 hover:border-[#4d2319] transition-all">
+              <div className="w-8 h-8 rounded-lg bg-[#27100b] border border-[#441d14] flex items-center justify-center text-[#e07a52] mb-3">
+                <FileCheck2 className="w-4 h-4" />
               </div>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                  <Lock className="h-5 w-5 text-darkBrown-400" />
-                </div>
+              <h3 className="text-white font-medium text-sm">Verified erasure</h3>
+              <p className="text-xs text-[#8c675c] mt-1">Recovery checks before sign-off</p>
+            </div>
+
+            {/* Card 3 */}
+            <div className="bg-[#190906]/90 border border-[#381811] rounded-2xl p-5 hover:border-[#4d2319] transition-all">
+              <div className="w-8 h-8 rounded-lg bg-[#27100b] border border-[#441d14] flex items-center justify-center text-[#e07a52] mb-3">
+                <Boxes className="w-4 h-4" />
+              </div>
+              <h3 className="text-white font-medium text-sm">Blockchain proof</h3>
+              <p className="text-xs text-[#8c675c] mt-1">Tamper-evident certificate ledger</p>
+            </div>
+
+            {/* Card 4 */}
+            <div className="bg-[#190906]/90 border border-[#381811] rounded-2xl p-5 hover:border-[#4d2319] transition-all">
+              <div className="w-8 h-8 rounded-lg bg-[#27100b] border border-[#441d14] flex items-center justify-center text-[#e07a52] mb-3">
+                <QrCode className="w-4 h-4" />
+              </div>
+              <h3 className="text-white font-medium text-sm">QR verification</h3>
+              <p className="text-xs text-[#8c675c] mt-1">Scan to validate any certificate</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Column: Authentication Card */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end">
+          <div className="w-full max-w-md bg-[#190906] border border-[#381811] rounded-3xl p-7 sm:p-9 shadow-2xl relative">
+            
+            {/* Header Icon */}
+            <div className="w-11 h-11 rounded-2xl bg-[#28110c] border border-[#461e15] flex items-center justify-center text-[#e07a52] mb-6">
+              <Lock className="w-5 h-5" />
+            </div>
+
+            {/* Form Title & Subtitle */}
+            <h2 className="text-2xl font-bold text-white tracking-tight">
+              Welcome back
+            </h2>
+            <p className="text-xs text-[#8c675c] mt-1.5 mb-7">
+              Sign in to your SecureWipe operator console.
+            </p>
+
+            {/* Form */}
+            <form onSubmit={handleLogin} className="space-y-4">
+              <div>
+                <label className="block text-xs font-medium text-[#ba9083] mb-1.5">
+                  Email / Username
+                </label>
+                <input
+                  type="text"
+                  required
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  placeholder="operator@greencycle.in"
+                  className="w-full bg-[#120604] border border-[#3a1a13] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-[#5c352a] focus:outline-none focus:border-[#e07a52] focus:ring-1 focus:ring-[#e07a52] transition-colors"
+                />
+              </div>
+
+              <div>
+                <label className="block text-xs font-medium text-[#ba9083] mb-1.5">
+                  Password
+                </label>
                 <input
                   type="password"
                   required
-                  className="block w-full pl-10 pr-3 py-2.5 border border-warmBeige-200 rounded-lg focus:ring-2 focus:ring-peach-300 focus:border-peach-300 transition-colors bg-warmBeige-50 text-darkBrown-800 outline-none"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
                   placeholder="••••••••"
+                  className="w-full bg-[#120604] border border-[#3a1a13] rounded-xl px-3.5 py-2.5 text-sm text-white placeholder:text-[#5c352a] focus:outline-none focus:border-[#e07a52] focus:ring-1 focus:ring-[#e07a52] transition-colors"
                 />
+              </div>
+
+              {/* Options */}
+              <div className="flex items-center justify-between pt-1">
+                <label className="flex items-center gap-2 cursor-pointer select-none">
+                  <input
+                    type="checkbox"
+                    checked={rememberMe}
+                    onChange={(e) => setRememberMe(e.target.checked)}
+                    className="w-4 h-4 rounded border-[#4a2218] bg-[#120604] text-[#e07a52] accent-[#e07a52] focus:ring-0 cursor-pointer"
+                  />
+                  <span className="text-xs text-[#ba9083]">Remember me</span>
+                </label>
+
+                <a 
+                  href="#" 
+                  onClick={(e) => e.preventDefault()}
+                  className="text-xs text-[#e07a52] hover:underline"
+                >
+                  Forgot password?
+                </a>
+              </div>
+
+              {/* Submit Button */}
+              <button
+                type="submit"
+                disabled={isLoading}
+                className="w-full mt-2 bg-[#d86b40] hover:bg-[#e07a52] active:bg-[#c95f35] text-[#190906] font-semibold py-3 px-4 rounded-xl text-sm transition-all duration-150 shadow-md flex items-center justify-center disabled:opacity-75 disabled:cursor-not-allowed"
+              >
+                {isLoading ? 'Signing in...' : 'Login'}
+              </button>
+            </form>
+
+            {/* Footer */}
+            <div className="mt-7 text-center space-y-4">
+              <p className="text-xs text-[#8c675c]">
+                New to SecureWipe?{' '}
+                <Link href="/register" className="text-[#e07a52] font-medium hover:underline">
+                  Create an account
+                </Link>
+              </p>
+
+              {/* Demo Note */}
+              <div className="pt-2 flex items-center justify-center gap-1.5 text-[11px] text-[#78544a]">
+                <Mail className="w-3.5 h-3.5" />
+                <span>Demo build — any valid email + 6 char password works.</span>
               </div>
             </div>
 
-            <div className="flex items-center">
-              <input
-                id="remember-me"
-                name="remember-me"
-                type="checkbox"
-                className="h-4 w-4 rounded border-warmBeige-300 text-peach-600 focus:ring-peach-500"
-              />
-              <label htmlFor="remember-me" className="ml-2 block text-sm text-darkBrown-600">
-                Remember me
-              </label>
-            </div>
-
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="w-full flex justify-center items-center gap-2 py-2.5 px-4 border border-transparent rounded-lg shadow-sm text-sm font-medium text-white bg-peach-500 hover:bg-peach-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-peach-500 transition-colors disabled:opacity-70 disabled:cursor-not-allowed"
-            >
-              {isLoading ? 'Signing in...' : 'Login'}
-              {!isLoading && <ArrowRight className="w-4 h-4" />}
-            </button>
-          </form>
-
-          <div className="mt-8 text-center">
-            <p className="text-sm text-darkBrown-500">
-              Don't have an account?{' '}
-              <Link href="/register" className="font-medium text-peach-600 hover:text-peach-700">
-                Create Account
-              </Link>
-            </p>
           </div>
         </div>
+
       </div>
     </div>
   );

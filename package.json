@@ -1,0 +1,10 @@
+{
+  "name": "ai-whiping",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "npm --prefix secure-wipe run dev",
+    "build": "npm --prefix secure-wipe run build",
+    "start": "npm --prefix secure-wipe run start"
+  }
+}
