@@ -1,7 +1,9 @@
 # SecureWipe 🛡️
 > **Wipe. Verify. Certify. Protect.**
 
-SecureWipe is a certified data erasure console designed for the secure retirement and recycling of IT assets (laptops, desktops, and mobile devices). Built as a prototype for the **Smart India Hackathon**, this platform ensures absolute data destruction compliance, generating cryptographic, tamper-evident proofs backed by blockchain technology. 
+SecureWipe is a certified data erasure console designed for the secure retirement and recycling of IT assets (laptops, desktops, and mobile devices). Built as a prototype for the **Smart India Hackathon**, this platform ensures absolute data destruction compliance, generating cryptographic, tamper-evident proofs backed by blockchain technology.
+
+🌐 **Live Demo:** [https://aiwhiping.vercel.app](https://aiwhiping.vercel.app)
 
 ---
 
@@ -31,6 +33,7 @@ This frontend prototype was built focusing on modern, responsive, and accessible
 * **Styling:** [Tailwind CSS](https://tailwindcss.com/) (Custom Dark Burgundy/Brown theme)
 * **Icons:** [Lucide React](https://lucide.dev/)
 * **Language:** TypeScript
+* **Deployment:** [Vercel](https://vercel.com/)
 
 ---
 
@@ -42,4 +45,4 @@ Make sure you have [Node.js](https://nodejs.org/) installed on your machine.
 ### Installation
 1. Clone this repository:
    ```bash
-   git clone [https://github.com/YOUR_USERNAME/secure-wipe-sih.git](https://github.com/YOUR_USERNAME/secure-wipe-sih.git)
+   git clone [https://github.com/Sahil964-star/AI-WHIPING.git](https://github.com/Sahil964-star/AI-WHIPING.git)
